@@ -2,6 +2,7 @@ package dev.iitp.publisher.producer.template;
 
 import dev.iitp.publisher.model.SensorRecord;
 import io.micrometer.core.instrument.MeterRegistry;
+import io.micrometer.prometheus.PrometheusMeterRegistry;
 import lombok.RequiredArgsConstructor;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
@@ -28,10 +29,12 @@ public class WatchSensorDataProducerTemplateConfiguration {
     }
 
     @Bean
-    public ProducerFactory<String, SensorRecord> watchSensorDateProducerFactory(MeterRegistry meterRegistry) {
+    public ProducerFactory<String, SensorRecord> watchSensorDateProducerFactory(MeterRegistry meterRegistry,
+                                                                                PrometheusMeterRegistry prometheusMeterRegistry) {
         Map<String, Object> props = watchSensorDataProducerConfig();
         DefaultKafkaProducerFactory<String, SensorRecord> producerFactory = new DefaultKafkaProducerFactory<>(props);
         producerFactory.addListener(new MicrometerProducerListener<>(meterRegistry));
+        producerFactory.addListener(new MicrometerProducerListener<>(prometheusMeterRegistry));
         return producerFactory;
     }
 
