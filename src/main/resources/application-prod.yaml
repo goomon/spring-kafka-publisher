@@ -1,0 +1,24 @@
+# Required connection configs for Kafka producer, consumer, and admin
+spring:
+  kafka:
+    properties:
+      bootstrap:
+        servers: ${KAFKA_HOST}
+      sasl:
+        mechanism: PLAIN
+        jaas:
+          config: org.apache.kafka.common.security.plain.PlainLoginModule required username='${CLOUD_USER}' password='${CLOUD_PASSWD}';
+      security:
+        protocol: SASL_SSL
+  jmx:
+    enabled: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "metrics, prometheus"
+
+logging:
+  level:
+    root: warn
