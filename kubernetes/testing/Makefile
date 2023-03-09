@@ -1,6 +1,6 @@
 #!/bin/bash
 NAMESPACE=locust
-replicase=20
+replicas=20
 
 all:
 	kubectl create namespace $(NAMESPACE) 2>/dev/null ; true

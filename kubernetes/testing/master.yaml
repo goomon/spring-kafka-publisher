@@ -54,7 +54,7 @@ spec:
       containers:
       - name: master
         image: bucket98/locust:system-v1
-        command: ["locust", "-f", "locustfile.py", "--master", "-H", "http://backend:8080"]
+        command: ["locust", "-f", "locustfile.py", "--master", "-H", "http://backend.backend:8080"]
         ports:
         - containerPort: 8089
         - containerPort: 5557

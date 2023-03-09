@@ -4,7 +4,7 @@ NAMESPACE=backend
 all:
 	kubectl create namespace $(NAMESPACE) 2>/dev/null ; true
 	kubectl create secret generic cloud-secret -n $(NAMESPACE) \
-  		--from-file=secrets/cloud_user.txt,secrets/cloud_passwd.txt,secrets/kafka_host.txt
+  		--from-file=secret/cloud_user.txt,secret/cloud_passwd.txt,secret/kafka_host.txt
 	kubectl apply -f server.yaml
 
 clean:
