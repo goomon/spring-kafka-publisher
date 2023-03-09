@@ -10,6 +10,8 @@ spring:
           config: org.apache.kafka.common.security.plain.PlainLoginModule required username='${CLOUD_USER}' password='${CLOUD_PASSWD}';
       security:
         protocol: SASL_SSL
+      linger.ms: ${LINGER_MS}
+      batch.size: ${BATCH_SIZE}
   jmx:
     enabled: true
 
@@ -21,4 +23,4 @@ management:
 
 logging:
   level:
-    root: warn
+    root: info

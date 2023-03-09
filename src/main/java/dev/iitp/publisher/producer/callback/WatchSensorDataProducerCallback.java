@@ -6,6 +6,8 @@ import org.springframework.kafka.core.KafkaProducerException;
 import org.springframework.kafka.core.KafkaSendCallback;
 import org.springframework.kafka.support.SendResult;
 
+import java.time.Instant;
+
 @Slf4j
 public class WatchSensorDataProducerCallback implements KafkaSendCallback<String, SensorRecord> {
 
@@ -15,5 +17,8 @@ public class WatchSensorDataProducerCallback implements KafkaSendCallback<String
 
     @Override
     public void onSuccess(SendResult<String, SensorRecord> result) {
+        SensorRecord sensorRecord = result.getProducerRecord().value();
+        long timestamp = Instant.now().toEpochMilli();
+        log.info("[END] {}, {}, {}", sensorRecord.getUserId(), sensorRecord.getTimestamp(), timestamp);
     }
 }
