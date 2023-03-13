@@ -21,6 +21,9 @@ management:
       exposure:
         include: "metrics, prometheus"
 
+user:
+  topic: ${TOPIC}
+
 logging:
   level:
     root: info

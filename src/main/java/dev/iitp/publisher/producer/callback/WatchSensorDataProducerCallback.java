@@ -19,6 +19,6 @@ public class WatchSensorDataProducerCallback implements KafkaSendCallback<String
     public void onSuccess(SendResult<String, SensorRecord> result) {
         SensorRecord sensorRecord = result.getProducerRecord().value();
         long timestamp = Instant.now().toEpochMilli();
-        log.info("[END] {}, {}, {}", sensorRecord.getUserId(), sensorRecord.getTimestamp(), timestamp);
+        log.info("[Success] {} {} {}", sensorRecord.getUserId(), sensorRecord.getTimestamp(), timestamp - result.getRecordMetadata().timestamp());
     }
 }
