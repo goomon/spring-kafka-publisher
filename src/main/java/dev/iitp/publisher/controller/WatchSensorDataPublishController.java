@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class WatchSensorDataPublishController {
 
     @Value("${user.topic}")
-    private final String TOPIC_NAME;
+    private String TOPIC_NAME;
     private final WatchSensorDataProducer watchSensorDataProducer;
 
     @PostMapping("/")
