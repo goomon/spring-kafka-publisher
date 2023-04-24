@@ -1,4 +1,4 @@
-package dev.iitp.publisher.model;
+package dev.iitp.publisher.model.chest;
 
 import lombok.Data;
 
@@ -8,5 +8,5 @@ import java.util.List;
 public class ElectrodernalActivity {
 
     private int hz;
-    private List<Double> value;
+    private List<Integer> value;
 }

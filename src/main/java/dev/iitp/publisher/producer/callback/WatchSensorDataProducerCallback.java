@@ -1,7 +1,7 @@
 package dev.iitp.publisher.producer.callback;
 
 import dev.iitp.publisher.model.Latency;
-import dev.iitp.publisher.model.SensorRecord;
+import dev.iitp.publisher.model.chest.SensorRecord;
 import dev.iitp.publisher.repository.LatencyRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -34,7 +34,7 @@ public class WatchSensorDataProducerCallback implements KafkaSendCallback<String
         SensorRecord sensorRecord = result.getProducerRecord().value();
         long timestamp = Instant.now().toEpochMilli();
         log.info("[Success] {} {} {}", sensorRecord.getUserId(), sensorRecord.getTimestamp(), timestamp - result.getRecordMetadata().timestamp());
-        saveLatency(timestamp - result.getRecordMetadata().timestamp());
+//        saveLatency(timestamp - result.getRecordMetadata().timestamp());
     }
 
     private void saveLatency(long elapsed) {

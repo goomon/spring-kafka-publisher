@@ -1,6 +1,6 @@
 package dev.iitp.publisher.producer.template;
 
-import dev.iitp.publisher.model.SensorRecord;
+import dev.iitp.publisher.model.chest.SensorRecord;
 import io.micrometer.core.instrument.MeterRegistry;
 import io.micrometer.prometheus.PrometheusMeterRegistry;
 import lombok.RequiredArgsConstructor;

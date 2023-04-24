@@ -1,6 +1,6 @@
 package dev.iitp.publisher.controller;
 
-import dev.iitp.publisher.model.SensorRecord;
+import dev.iitp.publisher.model.chest.SensorRecord;
 import dev.iitp.publisher.service.WatchSensorDataProducer;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -19,8 +19,8 @@ public class WatchSensorDataPublishController {
     private final WatchSensorDataProducer watchSensorDataProducer;
 
     @PostMapping("/")
-    public String publish(@RequestBody SensorRecord sensorRecord) {
-        watchSensorDataProducer.async(TOPIC_NAME, sensorRecord);
+    public String publish(@RequestBody SensorRecord chestSensorRecord) {
+        watchSensorDataProducer.async(TOPIC_NAME, chestSensorRecord);
         return "ok";
     }
 }

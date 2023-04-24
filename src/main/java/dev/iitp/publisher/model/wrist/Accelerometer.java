@@ -1,4 +1,4 @@
-package dev.iitp.publisher.model;
+package dev.iitp.publisher.model.wrist;
 
 import lombok.Data;
 
