@@ -11,19 +11,19 @@ import org.springframework.kafka.core.KafkaSendCallback;
 import org.springframework.kafka.support.SendResult;
 import org.springframework.stereotype.Component;
 
-import javax.transaction.Transactional;
+//import javax.transaction.Transactional;
 import java.time.Instant;
 import java.time.LocalDateTime;
 
 @Slf4j
-@Transactional
+//@Transactional
 @Component
 @RequiredArgsConstructor
 public class WatchSensorDataProducerCallback implements KafkaSendCallback<String, SensorRecord> {
 
     @Value("${user.nodeId}")
     private int nodeId;
-    private final LatencyRepository latencyRepository;
+//    private final LatencyRepository latencyRepository;
 
     @Override
     public void onFailure(KafkaProducerException ex) {
@@ -37,12 +37,12 @@ public class WatchSensorDataProducerCallback implements KafkaSendCallback<String
 //        saveLatency(timestamp - result.getRecordMetadata().timestamp());
     }
 
-    private void saveLatency(long elapsed) {
-        System.out.println("elapsed = " + elapsed);
-        Latency latency = new Latency();
-        latency.setTimestamp(LocalDateTime.now());
-        latency.setLatencyMilli(elapsed);
-        latency.setNodeId(nodeId);
-        latencyRepository.save(latency);
-    }
+//    private void saveLatency(long elapsed) {
+//        System.out.println("elapsed = " + elapsed);
+//        Latency latency = new Latency();
+//        latency.setTimestamp(LocalDateTime.now());
+//        latency.setLatencyMilli(elapsed);
+//        latency.setNodeId(nodeId);
+//        latencyRepository.save(latency);
+//    }
 }
