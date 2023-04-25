@@ -23,6 +23,7 @@ management:
 
 user:
   topic: ${TOPIC}
+  nodeId: 1
 
 logging:
   level:
