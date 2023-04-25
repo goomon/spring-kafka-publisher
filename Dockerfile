@@ -1,6 +1,6 @@
 FROM openjdk:21-ea-11-slim-buster
 
-ARG PROFILE_="default"
+ARG PROFILE_="prod"
 
 ENV VERSION="0.0.1-SNAPSHOT"
 ENV PROFILE=$PROFILE_
