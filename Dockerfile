@@ -6,8 +6,8 @@ ENV VERSION="0.0.1-SNAPSHOT"
 ENV PROFILE=$PROFILE_
 # You must set these environment variables when you want to run the container.
 ENV KAFKA_HOST ""
-ENV CLOUD_USER ""
-ENV CLOUD_PASSWD ""
+ENV SASL_USERNAME ""
+ENV SASL_PASSWORD ""
 
 COPY build/libs/publisher-$VERSION.jar .
 
