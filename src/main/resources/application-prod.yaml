@@ -7,7 +7,7 @@ spring:
       sasl:
         mechanism: PLAIN
         jaas:
-          config: org.apache.kafka.common.security.plain.PlainLoginModule required username='${CLOUD_USER}' password='${CLOUD_PASSWD}';
+          config: org.apache.kafka.common.security.plain.PlainLoginModule required username='${SASL_USERNAME}' password='${SASL_PASSWORD}';
       security:
         protocol: SASL_SSL
       linger.ms: ${LINGER_MS}
