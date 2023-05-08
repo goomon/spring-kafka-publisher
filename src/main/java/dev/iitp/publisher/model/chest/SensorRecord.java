@@ -11,6 +11,7 @@ import java.util.List;
 public class SensorRecord {
 
     private String userId;
+    private String connectionId;
     private long timestamp;
     private int windowSize;
     private List<Value> value;
